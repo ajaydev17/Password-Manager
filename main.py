@@ -99,8 +99,10 @@ def search_password():
 
                 messagebox.showinfo(title=website_entered, message=f"Email: {email_fetched}\n"
                                                                    f"Password: {password_fetched}")
+        except FileNotFoundError:
+            messagebox.showinfo(title="Oops", message=f"No data file found!!!")
         except KeyError:
-            messagebox.showinfo(title="Oops", message=f"website {website_entered} not found in the password manager!!!")
+            messagebox.showinfo(title="Oops", message=f"Website {website_entered} not found in the password manager!!!")
         finally:
             website_entry.delete(0, END)
 
